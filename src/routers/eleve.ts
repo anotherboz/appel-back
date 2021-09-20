@@ -4,5 +4,6 @@ import * as Eleve from '../models/eleve';
 export const router = express.Router();
 
 router.get('/', Eleve.get);
-router.post('/create', Eleve.create);
+router.post('/', Eleve.create);
+router.delete('/', Eleve.deleteEleve);
 

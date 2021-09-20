@@ -11,7 +11,7 @@ export async function login(req: express.Request, res: express.Response): Promis
 
     const login = req.body.login;
     const password = req.body.password;
-    const cookieSignKey = process.env.cookieSignKey ?? 'defaut sign key'
+    const cookieSignKey = process.env.COOKIE_SIGN_KEY ?? 'defaut sign key'
 
     console.log('login');
     console.log('login', login, password);
@@ -57,7 +57,7 @@ export async function getEnseignantFromCookie(req: express.Request): Promise<Ens
     const signedSession = req.cookies?.session;
     const cookieSignKey = process.env.COOKIE_SIGN_KEY ?? 'defaut sign key'
     
-    console.log('getEnseignantFromCookie', req.cookies);
+    console.log('getEnseignantFromCookie', signedSession);
     
     if (signedSession == null) {
         return undefined;

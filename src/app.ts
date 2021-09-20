@@ -2,6 +2,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import { router as userRouter } from './routers/user';
 import { router as eleveRouter } from './routers/eleve';
+import { router as appelRouter } from './routers/appel';
 
 require('dotenv').config({ path: __dirname+'/.env' });
 
@@ -16,6 +17,7 @@ app.get('/', (req, res) => {
 
 app.use('/user', userRouter);
 app.use('/eleve', eleveRouter);
+app.use('/appel', appelRouter);
 
 const port = parseInt(process.env.PORT as string, 10) | 3000;
 app.listen(port, () => {
