@@ -1,0 +1,31 @@
+{
+  "name": "appel",
+  "version": "1.0.0",
+  "description": "Feuille d'appel virtuelle",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "nodemon src/app.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "11.15.20",
+    "nodemon": "^2.0.12",
+    "prisma": "^3.0.2",
+    "ts-node": "^10.2.1",
+    "tslint": "^5.12.1",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.0.2",
+    "cookie-parser": "^1.4.5",
+    "cookie-signature": "^1.1.0",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.0"
+  }
+}

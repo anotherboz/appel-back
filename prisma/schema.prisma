@@ -1,0 +1,42 @@
+datasource db {
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model Appel {
+    id      Int   @id @default(autoincrement())
+    eleve   Eleve @relation(fields: [eleveId], references: [id])
+    eleveId Int
+    date    DateTime
+    presence Int @default(3) // 0: Absent 1: Present matin 2: Present après-midi 3: Present 
+}
+
+model Eleve {
+    id           Int        @id @default(autoincrement())
+    nom          String
+    prenom       String
+    enseignant   Enseignant @relation(fields: [enseignantId], references: [id])
+    enseignantId Int
+    hide         Boolean    @default(false)
+    appels        Appel[]
+}
+
+model Enseignant {
+    id       Int     @id @default(autoincrement())
+    login    String  @unique
+    password String
+    ecole    Ecole   @relation(fields: [ecoleId], references: [id])
+    ecoleId  Int
+    eleves    Eleve[]
+}
+
+model Ecole {
+    id         Int      @id @default(autoincrement())
+    nom        String   @unique
+    code       String
+    Enseignant Enseignant[]
+}
